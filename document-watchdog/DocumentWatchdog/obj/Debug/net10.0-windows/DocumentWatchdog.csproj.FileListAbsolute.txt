@@ -1,0 +1,16 @@
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\bin\Debug\net10.0-windows\DocumentWatchdog.exe
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\bin\Debug\net10.0-windows\DocumentWatchdog.deps.json
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\bin\Debug\net10.0-windows\DocumentWatchdog.runtimeconfig.json
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\bin\Debug\net10.0-windows\DocumentWatchdog.dll
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\bin\Debug\net10.0-windows\DocumentWatchdog.pdb
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.Form1.resources
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.csproj.GenerateResource.cache
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.AssemblyInfoInputs.cache
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.AssemblyInfo.cs
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.csproj.CoreCompileInputs.cache
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.dll
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\refint\DocumentWatchdog.dll
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.pdb
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\DocumentWatchdog.genruntimeconfig.cache
+C:\Users\pweber\source\repos\DocumentWatchdog\DocumentWatchdog\obj\Debug\net10.0-windows\ref\DocumentWatchdog.dll

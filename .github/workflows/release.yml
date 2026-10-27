@@ -1,0 +1,54 @@
+# Builds every tool on a Windows machine at GitHub and attaches the .exe files
+# to a release. Runs when a version tag (v1.2.3) is pushed, or by hand from the
+# Actions tab (then the files only end up as a downloadable build artifact).
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build
+        shell: pwsh
+        run: |
+          $tools = @{
+            'document-watchdog' = 'document-watchdog/DocumentWatchdog/DocumentWatchdog.csproj'
+            'program-watchdog'  = 'program-watchdog/ProgramWatchdog/ProgramWatchdog.csproj'
+            'running-backup'    = 'running-backup/RunningBackup/RunningBackup.csproj'
+          }
+          New-Item -ItemType Directory -Force dist | Out-Null
+          foreach ($name in $tools.Keys) {
+            dotnet publish $tools[$name] -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o "build/$name"
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+            $exe = Get-ChildItem "build/$name" -Filter *.exe | Select-Object -First 1
+            Copy-Item $exe.FullName "dist/$name.exe"
+          }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: watchdog-tools
+          path: dist/*.exe
+
+      - name: Attach to the release
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view $env:GITHUB_REF_NAME 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $env:GITHUB_REF_NAME --title $env:GITHUB_REF_NAME --notes-file RELEASE_NOTES.md
+          }
+          gh release upload $env:GITHUB_REF_NAME (Get-ChildItem dist/*.exe) --clobber

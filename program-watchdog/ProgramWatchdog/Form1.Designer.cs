@@ -52,10 +52,13 @@
         {
             this.SuspendLayout();
 
+            // Positions are in pixels at 100 %; scale them with the display DPI.
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+
             // ── Form ──────────────────────────────────────────────────────────
             this.Text = "ProgramWatchdog";
-            this.Size = new System.Drawing.Size(780, 900);
-            this.MinimumSize = new System.Drawing.Size(780, 900);
+            this.ClientSize = new System.Drawing.Size(760, 982);
             this.BackColor = System.Drawing.Color.FromArgb(30, 30, 40);
             this.ForeColor = System.Drawing.Color.FromArgb(220, 220, 230);
             this.Font = new System.Drawing.Font("Segoe UI", 9.5f);
@@ -371,7 +374,7 @@
             lstLog = new System.Windows.Forms.ListBox
             {
                 Location = new System.Drawing.Point(col1, 862),
-                Size = new System.Drawing.Size(w, 10),
+                Size = new System.Drawing.Size(w, 110),
                 BackColor = System.Drawing.Color.FromArgb(20, 20, 30),
                 ForeColor = System.Drawing.Color.FromArgb(160, 220, 160),
                 BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle,
@@ -396,8 +399,6 @@
             });
 
             this.ResumeLayout(false);
-
-            lstLog.Size = new System.Drawing.Size(w, this.ClientSize.Height - 862 - 10);
         }
 
         // ── Factory helpers ───────────────────────────────────────────────────

@@ -30,6 +30,21 @@ interface is in German.
 | [`program-watchdog`](program-watchdog) | Watches a running program. If it exits or freezes (detected with `IsHungAppWindow`, `SendMessageTimeout` and the process state), it raises an alarm: sound and/or e-mail. |
 | [`running-backup`](running-backup) | Copies a file or a folder at a fixed interval (1 minute to 12 hours) into timestamped copies, e.g. `measurement_24_02_2026_10_00.csv` — also while another program keeps the file open and writes to it. |
 
+## Screenshots
+
+Click a picture for the full size. The e-mail settings appear when *E-Mail-Benachrichtigung* is ticked.
+
+<table>
+  <tr>
+    <td align="center"><a href="docs/screenshots/document-watchdog.png"><img src="docs/screenshots/document-watchdog.png" width="400" alt="DocumentWatchdog: file, check interval, start button, notifications and event log"></a><br><code>document-watchdog</code></td>
+    <td align="center"><a href="docs/screenshots/program-watchdog.png"><img src="docs/screenshots/program-watchdog.png" width="400" alt="ProgramWatchdog: list of running programs, check interval, notifications and event log"></a><br><code>program-watchdog</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="docs/screenshots/running-backup.png"><img src="docs/screenshots/running-backup.png" width="400" alt="RunningBackup: source, output folder, base name, interval and log"></a><br><code>running-backup</code></td>
+    <td></td>
+  </tr>
+</table>
+
 ## Download and run
 
 1. Get the `.exe` you need from the [latest release](https://github.com/TechnikWeber/watchdog-tools/releases/latest).

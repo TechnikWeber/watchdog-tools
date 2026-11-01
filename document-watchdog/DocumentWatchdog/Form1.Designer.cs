@@ -51,10 +51,13 @@
         {
             this.SuspendLayout();
 
+            // Positions are in pixels at 100 %; scale them with the display DPI.
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+
             // ── Form ──────────────────────────────────────────────────────────
             this.Text = "DocumentWatchdog";
-            this.Size = new System.Drawing.Size(720, 780);
-            this.MinimumSize = new System.Drawing.Size(720, 780);
+            this.ClientSize = new System.Drawing.Size(700, 750);
             this.BackColor = System.Drawing.Color.FromArgb(30, 30, 40);
             this.ForeColor = System.Drawing.Color.FromArgb(220, 220, 230);
             this.Font = new System.Drawing.Font("Segoe UI", 9.5f);

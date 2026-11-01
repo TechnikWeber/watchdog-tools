@@ -31,9 +31,42 @@ namespace DocumentWatchdog
         public Form1()
         {
             InitializeComponent();
+            Load += (_, _) => { baseClientWidth = ClientSize.Width; StackPanels(); };
             SetupTimers();
             PopulateIntervalCombo();
             UpdateUI();
+        }
+
+        private int baseClientWidth;
+
+        // Stack the optional panels (e-mail settings, alarm) below the notifications,
+        // so no empty space is left for hidden ones, and size the window to fit.
+        private void StackPanels()
+        {
+            if (!IsHandleCreated) return;
+            int gap = LogicalToDeviceUnits(8);
+            int y = grpNotify.Bottom + gap;
+            foreach (var (panel, shown) in new (Control, bool)[] { (panelEmailSettings, chkEmail.Checked), (panelAlert, panelAlert.Visible) })
+            {
+                if (!shown) continue;
+                panel.Top = y;
+                y = panel.Bottom + gap;
+            }
+            lblLogLabel.Top = y;
+            lstLog.Top = y + LogicalToDeviceUnits(20);
+            FitToScreen(lstLog.Bottom - AutoScrollPosition.Y + LogicalToDeviceUnits(10));
+        }
+
+        // On small screens, limit the window to the working area and scroll the rest.
+        private void FitToScreen(int contentHeight)
+        {
+            var area = Screen.FromControl(this).WorkingArea;
+            int frame = Height - ClientSize.Height;
+            bool tooTall = contentHeight + frame > area.Height;
+            AutoScroll = tooTall;
+            int width = baseClientWidth + (tooTall ? SystemInformation.VerticalScrollBarWidth : 0);
+            ClientSize = new Size(width, tooTall ? area.Height - frame : contentHeight);
+            if (Bottom > area.Bottom) Top = Math.Max(area.Top, area.Bottom - Height);
         }
 
         // ── Timer Setup ───────────────────────────────────────────────────────
@@ -227,6 +260,7 @@ namespace DocumentWatchdog
         private void ShowAlertPopup(string title, string message)
         {
             panelAlert.Visible = true;
+            StackPanels();
             lblAlertTitle.Text = $"🚨 {title}";
             lblAlertMessage.Text = message;
 
@@ -335,6 +369,7 @@ namespace DocumentWatchdog
 
             // Email-Panel
             panelEmailSettings.Visible = chkEmail.Checked;
+            StackPanels();
         }
 
         private void chkEmail_CheckedChanged(object sender, EventArgs e) => UpdateUI();

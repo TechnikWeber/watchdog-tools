@@ -56,6 +56,10 @@
 
             this.SuspendLayout();
 
+            // Positions are in pixels at 100 %; scale them with the display DPI.
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+
             // Form
             this.Text = "RunningBackup";
             this.ClientSize = new System.Drawing.Size(620, 580);

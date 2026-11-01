@@ -33,9 +33,21 @@ namespace RunningBackup
         public Form1()
         {
             InitializeComponent();
+            Load += (_, _) => FitToScreen();
             InitializeTimers();
             InitializeIntervalDropdown();
             UpdateModeUI();
+        }
+
+        // On small screens, limit the window to the working area and scroll the rest.
+        private void FitToScreen()
+        {
+            var area = Screen.FromControl(this).WorkingArea;
+            if (Height <= area.Height) return;
+            AutoScroll = true;
+            Width += SystemInformation.VerticalScrollBarWidth;
+            Height = area.Height;
+            Top = area.Top;
         }
 
         private void InitializeTimers()

@@ -6,8 +6,9 @@
 
 <p align="center">
   <img alt="Status: stable" src="https://img.shields.io/badge/status-stable-brightgreen">
-  <a href="https://github.com/TechnikWeber/watchdog-tools/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/TechnikWeber/watchdog-tools?label=download&color=2ea44f"></a>
+  <a href="https://github.com/TechnikWeber/watchdog-tools/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/TechnikWeber/watchdog-tools?include_prereleases&label=download&color=2ea44f"></a>
   <a href="https://github.com/TechnikWeber/watchdog-tools/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/TechnikWeber/watchdog-tools/total?color=blue"></a>
+  <a href="https://github.com/TechnikWeber/watchdog-tools/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/TechnikWeber/watchdog-tools?style=flat&color=yellow"></a>
   <a href="https://github.com/TechnikWeber/watchdog-tools/actions/workflows/release.yml"><img alt="Build" src="https://github.com/TechnikWeber/watchdog-tools/actions/workflows/release.yml/badge.svg"></a>
   <img alt="Platform: Windows" src="https://img.shields.io/badge/platform-Windows-blue">
   <img alt="UI language: German" src="https://img.shields.io/badge/UI-Deutsch-informational">
@@ -15,7 +16,9 @@
 </p>
 
 <p align="center">
-  ⬇️ <a href="https://github.com/TechnikWeber/watchdog-tools/releases/latest"><strong>Download the .exe files</strong></a>
+  <a href="https://github.com/TechnikWeber/watchdog-tools/releases/latest"><b>Download the .exe files</b></a> &nbsp;·&nbsp;
+  <a href="#the-tools"><b>The tools</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/TechnikWeber/watchdog-tools/releases"><b>Releases</b></a>
 </p>
 
 ---

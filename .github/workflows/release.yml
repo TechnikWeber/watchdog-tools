@@ -29,17 +29,25 @@ jobs:
             'running-backup'    = 'running-backup/RunningBackup/RunningBackup.csproj'
           }
           New-Item -ItemType Directory -Force dist | Out-Null
+          # x64 keeps the plain name; Windows on ARM gets its own native build (-arm64).
+          $rids = @{ 'win-x64' = ''; 'win-arm64' = '-arm64' }
           foreach ($name in $tools.Keys) {
-            dotnet publish $tools[$name] -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o "build/$name"
-            if ($LASTEXITCODE -ne 0) { exit 1 }
-            $exe = Get-ChildItem "build/$name" -Filter *.exe | Select-Object -First 1
-            Copy-Item $exe.FullName "dist/$name.exe"
+            foreach ($rid in $rids.Keys) {
+              dotnet publish $tools[$name] -c Release -r $rid --self-contained false -p:PublishSingleFile=true -o "build/$name-$rid"
+              if ($LASTEXITCODE -ne 0) { exit 1 }
+              $exe = Get-ChildItem "build/$name-$rid" -Filter *.exe | Select-Object -First 1
+              Copy-Item $exe.FullName "dist/$name$($rids[$rid]).exe"
+            }
           }
+
+      - name: Checksums
+        shell: bash
+        run: cd dist && sha256sum *.exe > SHA256SUMS && cat SHA256SUMS
 
       - uses: actions/upload-artifact@v5
         with:
           name: watchdog-tools
-          path: dist/*.exe
+          path: dist/*
 
       - name: Attach to the release
         if: startsWith(github.ref, 'refs/tags/')
@@ -51,4 +59,4 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             gh release create $env:GITHUB_REF_NAME --title $env:GITHUB_REF_NAME --notes-file RELEASE_NOTES.md
           }
-          gh release upload $env:GITHUB_REF_NAME (Get-ChildItem dist/*.exe) --clobber
+          gh release upload $env:GITHUB_REF_NAME (Get-ChildItem dist/*) --clobber

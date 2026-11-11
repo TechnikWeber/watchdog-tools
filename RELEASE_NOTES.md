@@ -1,11 +1,9 @@
-Layout fixes for scaled displays (125 %, 150 % …) and a visible event log.
+Native builds for Windows on ARM and checksums. The tools themselves are unchanged since v1.0.1.
 
-- All three tools now scale with the Windows display scaling. Before, texts were cut off, e.g. "Ausgabeord" or an e-mail checkbox without its label.
-- `program-watchdog`: the event log was below the bottom edge of the window and could not be seen at all.
-- `document-watchdog`, `program-watchdog`: no more empty space for hidden panels. The window grows when you tick *E-Mail-Benachrichtigung* or when an alarm is shown.
-- On screens that are too small, the window fits the screen and scrolls.
+- **New: `…-arm64.exe`** for each tool — native programs for Windows on ARM (Snapdragon laptops). They need the Arm64 .NET 10 Desktop Runtime.
+- **New: `SHA256SUMS`** lists the checksum of every file.
 
 All three tools as single `.exe` files, built by GitHub Actions.
 
-- They need the .NET 10 Desktop Runtime.
+- They need the [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) (x64, or Arm64 for the `…-arm64.exe`).
 - The files are not signed; SmartScreen may warn (*More info › Run anyway*).

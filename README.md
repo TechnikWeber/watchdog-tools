@@ -49,8 +49,10 @@ Click a picture for the full size. The e-mail settings appear when *E-Mail-Benac
 
 ## Download and run
 
-1. Get the `.exe` you need from the [latest release](https://github.com/TechnikWeber/watchdog-tools/releases/latest).
-2. Install the [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) if it is not there yet.
+1. Get the `.exe` you need from the [latest release](https://github.com/TechnikWeber/watchdog-tools/releases/latest);
+   on Windows on ARM (Snapdragon laptops) the `…-arm64.exe`. `SHA256SUMS` lists the checksums.
+2. Install the [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) if it is not there yet
+   (x64, or Arm64 for the `…-arm64.exe`).
 3. Windows SmartScreen may warn because the files are not signed: *More info › Run anyway*.
 
 For e-mail alarms you need an SMTP account; with Gmail and similar services use an
